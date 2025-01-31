@@ -8,11 +8,13 @@ local M = {
     "hrsh7th/cmp-cmdline",
     "saadparwaiz1/cmp_luasnip",
     "L3MON4D3/LuaSnip",
+    "zbirenbaum/copilot-cmp",
   },
 }
 
 M.config = function()
   local cmp = require "cmp"
+  local copilot = require "copilot"
   cmp.setup {
     snippet = {
       -- REQUIRED - you must specify a snippet engine
@@ -32,6 +34,17 @@ M.config = function()
       ["<C-Space>"] = cmp.mapping.complete(),
       ["<C-e>"] = cmp.mapping.abort(),
       ["<CR>"] = cmp.mapping.confirm { select = true },
+      ["<Tab>"] = cmp.mapping(function(fallback)
+        if require("copilot.suggestion").is_visible() then
+          require("copilot.suggestion").accept() -- Accept Copilot suggestion
+        -- If nvim-cmp menu is visible, select the next item
+        elseif cmp.visible() then
+          cmp.select_next_item()
+        -- Otherwise, fallback to default Tab behavior
+        else
+          fallback()
+        end
+      end, { "i", "s" }),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()

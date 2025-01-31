@@ -58,7 +58,7 @@ require("lazy").setup {
     -- { import = "lazyvim.plugins.extras.util.gitui" },
     { import = "lazyvim.plugins.extras.util.startuptime" },
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
-    { import = "lazyvim.plugins.extras.linting.eslint" },
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "plugins" },
   },
   defaults = {

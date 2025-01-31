@@ -7,7 +7,7 @@ config_dir="$HOME/.config"
 function init(){
 	ln -sv "kitty" "$config_dir/kitty"
 	echo "Kitty config ready"
-	cp -a "nvim" "$config_dir/nvim"
+	cp -a "nvim" "$config_dir"
 	echo "Nvim config ready"
 	cp "tmux/tmux.conf" "$config_dir/tmux/tmux.conf"
 	echo "Tmux config ready"
