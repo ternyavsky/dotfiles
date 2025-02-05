@@ -3,7 +3,7 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.loader.enable()
 
-require "mbrav"
+require "ternyavsky"
 vim.g.mapleader = " "
 -- vim.cmd [[colorscheme kanagawa]]
 vim.opt.termguicolors = true
